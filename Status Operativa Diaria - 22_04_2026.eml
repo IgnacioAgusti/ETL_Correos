@@ -1,0 +1,120 @@
+Received: from 822473637510
+	named unknown
+	by gmailapi.google.com
+	with HTTPREST;
+	Wed, 22 Apr 2026 09:38:54 -0500
+Received: from 822473637510
+	named unknown
+	by gmailapi.google.com
+	with HTTPREST;
+	Wed, 22 Apr 2026 09:38:54 -0500
+MIME-Version: 1.0
+Subject: Status Operativa Diaria - 22/04/2026
+To: dayron.rodriguez@nfq.es
+Cc: 
+Bcc: 
+Sender: ignacio.agusti@nfq.es
+From: ignacio.agusti@nfq.es
+Message-Id: <CAJWpCwbriNY9SuwebD1Tz-RxgphkO044FtGJ1tbn6O+hX=m58g@mail.gmail.com>
+Date: Wed, 22 Apr 2026 09:38:54 -0500
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div style=3D"font-family: Arial, sans-serif; font-size: 14px; line-height:=
+ 1.5; color: #000000;">
+  <p>Buenos dias,</p>
+
+  <p>
+    A continuacion, os enviamos la informacion correspondiente al estado de=
+ la operativa diaria
+    tanto de <strong>TRAMES</strong> como de <strong>BACKEND</strong>.
+  </p>
+
+  <p><p><strong>CAS</strong>: 41 tramas en recepci=C3=B3n, 0 en env=C3=ADo.=
+ Seg=C3=BAn el monitor hay 41 en estado pendiente (P). No se han registrado=
+ detalles de fallo individuales en la informaci=C3=B3n recibida.</p></p>
+
+  <h3 style=3D"font-size: 14px; margin: 18px 0 8px 0;">TRAMES comunicacione=
+s</h3>
+  <ul style=3D"margin: 0 0 16px 18px; padding: 0;">
+    <li>
+      <strong>Convenio CAS</strong>
+      <ul>
+        <li><strong>RECEPCION</strong>: <p>Recepci=C3=B3n CAS: 41 tramas re=
+cibidas. No hay detalles individuales de error disponibles en el informe.</=
+p></li>
+        <li><strong>ENVIO</strong>: <p>Limpio</p></li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Convenio CICOS</strong>
+      <ul>
+        <li><strong>RECEPCION</strong>: <p>Limpio</p></li>
+        <li><strong>ENVIO</strong>: <p>Limpio</p></li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Convenio SDM</strong>
+      <ul>
+        <li><strong>RECEPCION</strong>: <p><strong>SDM =E2=80=94 Recepci=C3=
+=B3n:</strong> 3 errores detectados.</p><ul><li>Lote 4589, Reg 146: =C2=ABN=
+o existen datos en la tabla de CLAVES=C2=BB (fuente: traza de proceso).</li=
+><li>Lote 4589, Reg 150: =C2=ABNo existen datos en la tabla de CLAVES=C2=BB=
+.</li><li>Lote 4589, Reg 112: =C2=ABNo existen datos en la tabla de CLAVES=
+=C2=BB.</li></ul><p>Observaci=C3=B3n: los tres errores pertenecen al mismo =
+lote (4589) y apuntan a ausencia de claves; se requiere revisi=C3=B3n de la=
+ tabla CLAVES para ese lote.</p></li>
+        <li><strong>ENVIO</strong>: <p>Limpio</p></li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Comunicaciones SDP-LEX</strong>
+      <ul>
+        <li><p><strong>Revisi=C3=B3n manual:</strong> No hay datos disponib=
+les para SDPLEX en el monitor diario. Se requiere comprobaci=C3=B3n manual =
+de la fuente si se espera informaci=C3=B3n de SDPLEX.</p></li>
+      </ul>
+    </li>
+  </ul>
+
+  <hr style=3D"border: 0; border-top: 1px solid #cccccc; margin: 16px 0;" /=
+>
+
+  <h3 style=3D"font-size: 14px; margin: 18px 0 8px 0;">BACKEND: Cadena OPER=
+ACIONES ECONOMICAS (R01T0270):</h3>
+  <ul style=3D"margin: 0 0 16px 18px; padding: 0;">
+    <p><strong>Operaciones econ=C3=B3micas =E2=80=94 Resumen agrupado:</str=
+ong> Se detectaron 8 incidencias agrupadas. Estado operativo: en an=C3=A1li=
+sis.</p><ul><li><strong>Error al obtener NUM_CRUCE</strong>: 1 incidencia (=
+ejemplo detectado: "34 Error al obtener NUM_CRUCE (Cod_docum erroneo)").</l=
+i><li><strong>Operaci=C3=B3n no existe en TRON</strong>: 4 incidencias (var=
+iante detectada: "OPERACION NO EXISTE EN TR280141").</li><li><strong>Percep=
+tor inhabilitado o con fechas de validez err=C3=B3neas</strong>: 2 incidenc=
+ias (variante detectada: "-10 Perceptor inhabilitado o con fechas de valide=
+z erroenas").</li><li><strong>Errores en datos personales, postales o banca=
+rios</strong>: 1 incidencia (variante detectada: "-9 Errores en datos perso=
+nales, postales o bancarios").</li></ul><p><strong>Incidencias no parametri=
+zadas:</strong> 2 registros no identificados autom=C3=A1ticamente =E2=80=94=
+ <strong>Revisi=C3=B3n manual requerida</strong>.</p>
+  </ul>
+
+  <hr style=3D"border: 0; border-top: 1px solid #cccccc; margin: 16px 0;" /=
+>
+
+  <h3 style=3D"font-size: 14px; margin: 18px 0 8px 0;">Cadenas KO</h3>
+  <div><p><strong>Cadenas con incidencias (resumen):</strong></p><ul><li>SD=
+M: 3 errores en recepci=C3=B3n (Lote 4589; registros 112, 146, 150) por aus=
+encia de claves en tabla CLAVES.</li><li>Operaciones econ=C3=B3micas: 8 inc=
+idencias agrupadas (ver resumen) y 2 incidencias no parametrizadas que requ=
+ieren revisi=C3=B3n manual.</li><li>CAS y CICOS: no se detectan fallos de e=
+nv=C3=ADo; CAS tiene 41 entradas en recepci=C3=B3n sin detalles de error, C=
+ICOS limpio.</li></ul></div>
+
+  <p>Quedo a vuestra disposicion para cualquier otra cuestion relacionada c=
+on el Status con la que os pueda ayudar.</p>
+  <p>Muchas gracias.</p>
+  <p>Buen dia.</p>
+</div>

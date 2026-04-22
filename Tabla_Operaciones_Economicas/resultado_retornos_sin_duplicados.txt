@@ -1,0 +1,19 @@
+-10 Perceptor inhabilitado o
+-10 Perceptor inhabilitado o con fechas de validez erroenas
+-18 Concepto Economico no dado de alta en CONVA o Impuesto con codigo a Nulo
+-2 No se ha podido recuperar la descripcion
+-20 Ya existe la OP
+-20 Ya existe la OP contabilizada en Tron
+-23 El perceptor al que se realiza el pago es un taller Inhabilitado
+-31 El perceptor al que se realiza el pago es un Abogado colaborador Inhabilitado
+-32 El perceptor al que se realiza el pago es un Procurador colaborador Inhabilitado
+-8 No se ha podido recuperar la descripcion
+-9 Errores en datos personales, postales o bancarios
+1 No se ha podido recuperar la descripcion
+101 No se ha podido recuperar la descripcion
+25 No se ha podido recuperar la descripcion
+30 Consignacion judicial enviada, no se puede ANULAR
+33 No se ha podido recuperar la descripcion
+34 Error al obtener NUM_CRUCE
+34 Error al obtener NUM_CRUCE (Cod_docum erroneo)
+8 La operacion ya se encuentra anulada

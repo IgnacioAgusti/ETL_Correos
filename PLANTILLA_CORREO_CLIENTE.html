@@ -1,0 +1,55 @@
+<div style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.5; color: #000000;">
+  <p>Buenos dias,</p>
+
+  <p>
+    A continuacion, os enviamos la informacion correspondiente al estado de la operativa diaria
+    tanto de <strong>TRAMES</strong> como de <strong>BACKEND</strong>.
+  </p>
+
+  <h3 style="font-size: 14px; margin: 18px 0 8px 0;">TRAMES comunicaciones</h3>
+  <ul style="margin: 0 0 16px 18px; padding: 0;">
+    <li>
+      <strong>Convenio CAS</strong>
+      <ul>
+        <li><strong>RECEPCION</strong>: {{trames_cas_recepcion_html}}</li>
+        <li><strong>ENVIO</strong>: {{trames_cas_envio_html}}</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Convenio CICOS</strong>
+      <ul>
+        <li><strong>RECEPCION</strong>: {{trames_cicos_recepcion_html}}</li>
+        <li><strong>ENVIO</strong>: {{trames_cicos_envio_html}}</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Convenio SDM</strong>
+      <ul>
+        <li><strong>RECEPCION</strong>: {{trames_sdm_recepcion_html}}</li>
+        <li><strong>ENVIO</strong>: {{trames_sdm_envio_html}}</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Comunicaciones SDP-LEX</strong>
+      <ul>
+        <li>{{trames_sdplex_resumen_html}}</li>
+      </ul>
+    </li>
+  </ul>
+
+  <hr style="border: 0; border-top: 1px solid #cccccc; margin: 16px 0;" />
+
+  <h3 style="font-size: 14px; margin: 18px 0 8px 0;">BACKEND: Cadena OPERACIONES ECONOMICAS (R01T0270):</h3>
+  <ul style="margin: 0 0 16px 18px; padding: 0;">
+    {{backend_operaciones_economicas_items_html}}
+  </ul>
+
+  {{cadenas_ko_html}}
+
+  <p>Quedo a vuestra disposicion para cualquier otra cuestion relacionada con el Status con la que os pueda ayudar.</p>
+  <p>Muchas gracias.</p>
+  <p>Buen dia.</p>
+</div>

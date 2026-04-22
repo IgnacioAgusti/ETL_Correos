@@ -1,0 +1,119 @@
+Delivered-To: ignacio.agusti@nfq.es
+Received: by 2002:a5d:51cf:0:b0:43e:a8c5:c39b with SMTP id n15csp2604258wrv;
+        Wed, 22 Apr 2026 07:09:45 -0700 (PDT)
+X-Received: by 2002:a05:6000:4703:b0:43d:a37:eb9d with SMTP id ffacd0b85a97d-43fe3e1717emr14529093f8f.5.1776866984820;
+        Wed, 22 Apr 2026 07:09:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776866984; cv=none;
+        d=google.com; s=arc-20240605;
+        b=c8o5n2IuESfDgQvOy/jXS5XLU64dhNhB7UXCW8cwZSVtcZKQgLzAaeiS01IB9ga4TG
+         qnJBHSFkPu9N0+pO8/urdCXiK0brG9tW2hhPQmUYdphSjC1m2ogBInfMZrQZrTToOZvb
+         uoYOEFNtTJN1lkn+sOlKFNGwTDgQXk8/yqRvyKX3wTZs69XOxHiIkFgiS9BEILlpUsTU
+         btvBN990PuKTM0rpYGFdC8pTzQ/rqyKTF8DIXm6Yrz1xLA8r28DXfUb0MyBvC2Roczvt
+         gzlb4jOYVPxG87OjhOACU2bl2zLIdlzS9NMj6Mphd5IviX0NSW94yO3hhEsRSWo90Tt/
+         nogg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:date:message-id:to:subject:from:dkim-signature;
+        bh=m3bOfY/kkb4x5Erxr94KNutmUiU8U46G6BBR71ad4Q0=;
+        fh=urDN7aMBPnaGA0dsn/4Ixgyl7etgEDXFM5Lnz7HNbmo=;
+        b=ffKN8IWz8JtUrGM84LajPyNteZu5VI7dngaKkxgPoTtq3Jjbfyz4C5qT136q9aG/+O
+         FP2d/Az4FB3nIXQj3ERdPAJCLKml3iphFZOhJq3VNhQidVZ3HkHGSktVQWdQXmBxUYoR
+         hfMEdqx7i4274Hm4L4FgQSMyPuC57RJo1UITRlMMhvgRBPFyIw2STIg48aDvq2ke7nV5
+         OrOS1Nu0Rq2TH/sp82vt4JK9bTZQ7zRfrDePqAxlZr/FThME/kXkU9YsP7auaba50HSO
+         Os2xh4V+y31OtgPocKyP6ePTcYa64D9iz50YvTnb4Y8SQJTzB64uLjoimEBWo2C5DX7a
+         RUKw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mapfre.com header.s=ser20230120 header.b=GS4tqJEy;
+       spf=pass (google.com: domain of mon@mapfre.com designates 194.121.26.132 as permitted sender) smtp.mailfrom=MON@mapfre.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mapfre.com
+Return-Path: <MON@mapfre.com>
+Received: from cursormapfre1c.iblhelper.net (cursormapfre1c.iblhelper.net. [194.121.26.132])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-43fe4c9e5f6si29610847f8f.68.2026.04.22.07.09.44
+        for <ignacio.agusti@nfq.es>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Apr 2026 07:09:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mon@mapfre.com designates 194.121.26.132 as permitted sender) client-ip=194.121.26.132;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mapfre.com header.s=ser20230120 header.b=GS4tqJEy;
+       spf=pass (google.com: domain of mon@mapfre.com designates 194.121.26.132 as permitted sender) smtp.mailfrom=MON@mapfre.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mapfre.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mapfre.com;
+	s=ser20230120; t=1776866981;
+	bh=joKQ28xrCL80lybV7x887zzxB2P4f94Xxu4itIy0rTA=;
+	h=From:Subject:To:Date:From;
+	b=GS4tqJEy7fI/qa73m6d+8tyDRDxLaw2E9qKMkP1g1odaCLS1ilODzHzlVYgL06Q9M
+	 jA4m/NOoTu+UwoWOPyFtblZ0Z1FhWgcqPNptgYDZmmxRAejJAMNb8Kzvl+eJibw3PL
+	 /K+5pSqMq8vu5GUYF24erDbttkqc97bplk2rPLbj6kyEnES9Xpnktm/HsNrA2/6CaV
+	 yjVgZJWXYzAntstw9EoURSGBkTXdGk8VwuwDExMYG7NG1+Frs+VqpLGNbwFT7LwWgk
+	 X2hzUxdmu4yTjy2WMtJW9x3oNsUCJGIdWwNhzQ862ZNqr8TqFnsQDKeuhKEfZsr56n
+	 TMeJ0/FeiEmyA==
+Received: from HybridEDGE.mapfre.com (unknown [195.235.248.62])
+	by cursormapfre1.iblhelper.net (Postfix) with ESMTPS id 4g11Lr5T4szPbZ
+	for <ignacio.agusti@nfq.es>; Wed, 22 Apr 2026 16:09:40 +0200 (CEST)
+Received: from SMN000A106122.mapfre.net (10.228.131.17) by
+ SMNMSXA21-EDGE4.es.mapfre.net (10.231.160.13) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 22 Apr 2026 16:08:08 +0200
+Received: from SMN000A106122.mapfre.net (10.228.131.17) by
+ SMN000A106122.mapfre.net (10.228.131.17) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 22 Apr 2026 16:08:09 +0200
+Received: from mapfre.com (10.228.140.10) by
+ Anonimo_2016_SMN000A106122.mapfre.net (10.228.131.17) with Microsoft SMTP
+ Server id 15.1.2507.58 via Frontend Transport; Wed, 22 Apr 2026 16:08:09
+ +0200
+From: A7-MONITOR <MON@mapfre.com>
+Subject: REAL: Monitor diario sistemas
+To: <ignacio.agusti@nfq.es>
+X-Priority: 1Reply-To : MON@mapfre.com
+Content-Type: multipart/mixed; boundary="DMW.Boundary.605592468"
+Message-ID: <495fd1b3-ed95-40fe-b316-eb8a88999326@SMN000A106122.mapfre.net>
+Date: Wed, 22 Apr 2026 16:08:09 +0200
+MIME-Version: 1.0
+
+--DMW.Boundary.605592468
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Type: text/plain
+
+
+
+RESUMEN MONITOR DIARIO
+Fecha: 22/04/2026
+--------------------------------
+CAS:
+  Recepcion: 41
+   COD_ESTADO = F: 0
+   COD_ESTADO = N: 0
+   COD_ESTADO = P: 41
+  Envio:     0
+ 
+CICOS:
+  Recepcion: 0
+   COD_ESTADO = F: 
+   COD_ESTADO = N: 
+   COD_ESTADO = P: 
+   COD_ESTADO = n: 
+   COD_ESTADO = L: 
+  Envio:     0
+ 
+SDM:
+  Recepcion: 3
+   COD_ESTADO = F: 3
+   COD_ESTADO = N: 0
+   COD_ESTADO = P: 0
+  Envio:     0
+  >> Detalle errores SDM:
+   Lote: 4589 | Reg: 146
+     [Traza] 22/04/2026 02:30:32 | Proc: FU_TRATA_DIALOGOS_SDM | CodErr: 0 | Orden:  | Usuario: T99CM01 | ERROR: FINALIZA fu_trata_dialogos_sdm devuelve F. Lote 4589 y num_reg 146 fallo en . No existen datos en la tabla de CLAVES
+   Lote: 4589 | Reg: 150
+     [Traza] 22/04/2026 02:30:32 | Proc: FU_TRATA_DIALOGOS_SDM | CodErr: 0 | Orden:  | Usuario: T99CM01 | ERROR: FINALIZA fu_trata_dialogos_sdm devuelve F. Lote 4589 y num_reg 150 fallo en . No existen datos en la tabla de CLAVES
+   Lote: 4589 | Reg: 112
+     [Traza] 22/04/2026 02:30:32 | Proc: FU_TRATA_DIALOGOS_SDM | CodErr: 0 | Orden:  | Usuario: T99CM01 | ERROR: FINALIZA fu_trata_dialogos_sdm devuelve F. Lote 4589 y num_reg 112 fallo en . No existen datos en la tabla de CLAVES
+
+
+
+
+
+--DMW.Boundary.605592468--

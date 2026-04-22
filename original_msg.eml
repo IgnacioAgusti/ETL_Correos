@@ -1,0 +1,277 @@
+MIME-Version: 1.0
+Date: Wed, 22 Apr 2026 15:10:30 +0200
+Message-ID: <CAJWpCwbzWpj06WQApr7+GHYUSM3VjRF8jeHtArxBiRCcU-s2AA@mail.gmail.com>
+Subject: 
+From: Ignacio Agusti Cordoba <ignacio.agusti@nfq.es>
+To: Ignacio Agusti Cordoba <ignacio.agusti@nfq.es>
+Content-Type: multipart/alternative; boundary="0000000000009cee5806500c417d"
+
+--0000000000009cee5806500c417d
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Buenos d=C3=ADas,
+
+A continuaci=C3=B3n, os enviamos la informaci=C3=B3n correspondiente al est=
+ado de la
+operativa diaria tanto de *TRAMES* como de *BACKEND*.
+
+Se ha recepcionado correctamente el CAS con *11.017 *registros.
+=F0=9F=94=B9 TRAMES comunicaciones
+
+
+   - *Convenio CAS*
+      - *RECEPCI=C3=93N *
+         -
+
+         47 registros en estado =E2=80=98P=E2=80=99 que van a ser
+          tratados manualmente por el tramitador. *Detectado hoy, se
+         resolver=C3=A1 a lo largo del d=C3=ADa. *
+      - *ENV=C3=8DO*
+         - 26 registros en estado =E2=80=98L=E2=80=99, con COD_MENSAJE entr=
+e 701 y 705 y
+         convenio 2010U: *Detectado hoy, se resolver=C3=A1 a lo largo del d=
+=C3=ADa. *
+
+------------------------------
+
+
+   - *Convenio CICOS*
+      - *RECEPCI=C3=93N *
+         - 23 registros con COD_ESTADO =3D =E2=80=98L=E2=80=99 y fecha de r=
+ecepci=C3=B3n
+21/04/26: *Detectado
+         hoy, se resolver=C3=A1 a lo largo del d=C3=ADa. *
+      - *ENV=C3=8DO*
+         - Limpio
+
+------------------------------
+
+
+   - *Convenio SDM*
+      - *RECEPCI=C3=93N: *
+         - 3 notificaciones con c=C3=B3digo de mensaje 030 y COD_ESTADO =E2=
+=80=98F=E2=80=99 en
+         SDM, con fecha de recepci=C3=B3n 21/04/26: *Detectado hoy, se reso=
+lver=C3=A1
+         a lo largo del d=C3=ADa. *
+      - *ENV=C3=8DO*
+         - Limpio
+
+------------------------------
+
+   - *Comunicaciones SDP-LEX*
+      - Se ha identificado un registro SDPLEX sin expediente
+aperturado. *Detectado
+      hoy, en an=C3=A1lisis.*
+
+------------------------------
+
+=F0=9F=94=B9 BACKEND: Cadena OPERACIONES ECON=C3=93MICAS (R01T0270):
+
+   - Se han identificado 2 operaciones duplicadas enviadas a TRON: *Detecta=
+do
+   hoy, se resolver=C3=A1 a lo largo del d=C3=ADa.*
+   - Se ha identificado un error 34 Error al
+   obtener NUM_CRUCE (Cod_docum err=C3=B3neo). *En an=C3=A1lisis. *
+   - Se han identificado 4 errores por OPERACION NO EXISTE EN TR280141. *En
+   an=C3=A1lisis. *
+   - Se han identificado 2 errores por COD_ENTIDAD_EMI NULO EN UNA
+FACTURA. *Detectado
+   hoy, se resolver=C3=A1 a lo largo del d=C3=ADa.*
+   - Se han identificado 2 errores -10 Perceptor inhabilitado o con fechas
+   de validez erroenas. *En an=C3=A1lisis. *
+
+------------------------------
+=F0=9F=94=B9  Cadenas KO Sin cadenas KO identificadas.
+Quedo a vuestra disposici=C3=B3n para cualquier otra cuesti=C3=B3n relacion=
+ada con el
+Status con la que os pueda ayudar.
+
+Muchas gracias.
+
+Buen d=C3=ADa.
+[image: Logo]
+
+Ignacio Andres Agusti Cordoba
+
+Consultant
+
+C/ ODonnell 34, 28009, Madrid
+
+Madrid - London - Warszawa - CDMX - S=C3=A3o Paulo - Bogot=C3=A1 - NYC
+[image: LinkedIn] <https://www.linkedin.com/company/nfq-advisory/> [image:
+Instagram] <https://www.instagram.com/nfq_advisory> [image: Facebook]
+<https://www.facebook.com/NWorld.Advisory.Tech.Operations>
+
+--0000000000009cee5806500c417d
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div><div><span style=3D"font-family:arial,sans-serif">Bue=
+nos d=C3=ADas,</span></div><div><div dir=3D"ltr" class=3D"gmail_signature">=
+<div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div><p class=3D"MsoNorm=
+al" style=3D"margin:0cm"></p><p><font face=3D"arial, sans-serif">A continua=
+ci=C3=B3n, os enviamos la informaci=C3=B3n correspondiente al estado de la =
+operativa diaria tanto de=C2=A0<strong>TRAMES</strong>=C2=A0como de=C2=A0<s=
+trong>BACKEND</strong>.</font></p><p><font face=3D"arial, sans-serif">Se ha=
+ recepcionado correctamente el CAS con</font>=C2=A0<b>11.017=C2=A0</b>regis=
+tros.</p><h3><font face=3D"arial, sans-serif" size=3D"2">=F0=9F=94=B9=C2=A0=
+TRAMES comunicaciones</font></h3><div><p></p><ul><font face=3D"arial, sans-=
+serif"><li style=3D"margin-left:15px"><b>Convenio CAS</b></li><ul><li style=
+=3D"margin-left:15px"><b>RECEPCI=C3=93N=C2=A0</b></li><ul><li style=3D"marg=
+in-left:15px"><p style=3D"display:inline">47 registros en estado=C2=A0=E2=
+=80=98P=E2=80=99 que van a ser</p>=C2=A0tratados manualmente por el tramita=
+dor.=C2=A0<i><b>Detectado hoy, se resolver=C3=A1 a lo largo del d=C3=ADa.=
+=C2=A0</b></i></li></ul><li style=3D"margin-left:15px"><b>ENV=C3=8DO</b></l=
+i><ul><li style=3D"margin-left:15px">26 registros en estado=C2=A0=E2=80=98L=
+=E2=80=99, con COD_MENSAJE entre 701 y 705 y convenio 2010U:=C2=A0<i><b>Det=
+ectado hoy, se resolver=C3=A1 a lo largo del d=C3=ADa.=C2=A0</b></i></li></=
+ul></ul></font></ul></div><div><hr style=3D"color:rgb(34,34,34)"><p></p><ul=
+><font face=3D"arial, sans-serif"><li style=3D"margin-left:15px"><b>Conveni=
+o CICOS</b></li><ul><li style=3D"margin-left:15px"><b>RECEPCI=C3=93N=C2=A0<=
+/b></li><ul><li style=3D"margin-left:15px">23 registros con COD_ESTADO =3D =
+=E2=80=98L=E2=80=99 y fecha de recepci=C3=B3n 21/04/26:=C2=A0<i><b>Detectad=
+o hoy, se resolver=C3=A1 a lo largo del d=C3=ADa.=C2=A0</b></i></li></ul><l=
+i style=3D"margin-left:15px"><b>ENV=C3=8DO</b></li><ul><li style=3D"margin-=
+left:15px">Limpio</li></ul></ul></font></ul><hr style=3D"color:rgb(34,34,34=
+)"><p></p><ul><font face=3D"arial, sans-serif"><li style=3D"margin-left:15p=
+x"><b>Convenio SDM</b></li><ul><li style=3D"margin-left:15px"><b>RECEPCI=C3=
+=93N:=C2=A0</b>=C2=A0</li><ul><li style=3D"margin-left:15px">3 notificacion=
+es con c=C3=B3digo de mensaje 030 y COD_ESTADO =E2=80=98F=E2=80=99 en SDM, =
+con fecha de recepci=C3=B3n 21/04/26:=C2=A0<i><b>Detectado hoy, se resolver=
+=C3=A1 a lo largo del d=C3=ADa.=C2=A0</b></i></li></ul><li style=3D"margin-=
+left:15px"><b>ENV=C3=8DO</b></li><ul><li style=3D"margin-left:15px">Limpio<=
+/li></ul></ul></font></ul></div><div><hr style=3D"color:rgb(34,34,34)"><h3>=
+<ul><font face=3D"arial, sans-serif"><li style=3D"margin-left:15px;font-siz=
+e:small;font-weight:400"><b>Comunicaciones SDP-LEX</b></li><ul><li style=3D=
+"margin-left:15px"><font size=3D"2"><span style=3D"font-weight:400">Se ha i=
+dentificado un registro SDPLEX=C2=A0sin expediente aperturado.=C2=A0</span>=
+<i>Detectado hoy, en an=C3=A1lisis.</i></font></li></ul></font></ul></h3><h=
+3><div><hr style=3D"color:rgb(34,34,34)"><p></p></div></h3><h3><font face=
+=3D"arial, sans-serif" size=3D"2">=F0=9F=94=B9=C2=A0BACKEND:=C2=A0Cadena OP=
+ERACIONES ECON=C3=93MICAS (R01T0270):</font></h3></div><h3><ul><li style=3D=
+"margin-left:15px"><font face=3D"arial, sans-serif" size=3D"2" style=3D"fon=
+t-weight:normal">Se han identificado 2 operaciones duplicadas=C2=A0enviadas=
+=C2=A0a TRON:=C2=A0</font><i style=3D"font-size:small;color:rgb(0,0,0)">Det=
+ectado hoy, se resolver=C3=A1 a lo largo del d=C3=ADa.</i><span style=3D"co=
+lor:rgb(56,118,29);font-family:arial,sans-serif;font-size:small">=C2=A0</sp=
+an></li><li style=3D"margin-left:15px"><font face=3D"arial, sans-serif" siz=
+e=3D"2" style=3D"font-weight:normal">Se ha identificado un error 34 Error a=
+l obtener=C2=A0NUM_CRUCE=C2=A0(Cod_docum=C2=A0err=C3=B3neo).=C2=A0</font><i=
+ style=3D"font-size:small;font-family:arial,sans-serif"><font color=3D"#000=
+000">En an=C3=A1lisis.=C2=A0</font></i></li><li style=3D"margin-left:15px">=
+<font size=3D"2" style=3D"font-weight:normal"><font color=3D"#000000">Se ha=
+n identificado 4</font>=C2=A0errores por<i>=C2=A0</i>OPERACION NO EXISTE EN=
+ TR280141.</font><span style=3D"font-size:small;font-weight:normal">=C2=A0<=
+/span><i style=3D"font-size:small;font-family:arial,sans-serif"><font color=
+=3D"#000000">En an=C3=A1lisis.=C2=A0</font></i></li><li style=3D"margin-lef=
+t:15px"><font size=3D"2" color=3D"#000000" style=3D"font-weight:normal"><sp=
+an style=3D"font-family:arial,sans-serif">Se han identificado</span><span s=
+tyle=3D"font-family:arial,sans-serif">=C2=A02</span>=C2=A0errores por COD_E=
+NTIDAD_EMI NULO EN UNA FACTURA.</font><span style=3D"font-size:small;font-w=
+eight:normal">=C2=A0</span><i style=3D"font-size:small;color:rgb(0,0,0)">De=
+tectado hoy, se resolver=C3=A1 a lo largo del d=C3=ADa.</i><span style=3D"c=
+olor:rgb(56,118,29);font-family:arial,sans-serif;font-size:small">=C2=A0</s=
+pan></li><li style=3D"margin-left:15px"><font size=3D"2" style=3D"font-weig=
+ht:normal">Se han identificado 2 errores=C2=A0<span style=3D"color:rgb(0,0,=
+0)">-1</span></font><span style=3D"font-size:small;color:rgb(0,0,0);font-we=
+ight:normal">0 Perceptor inhabilitado o con fechas de validez erroenas.=C2=
+=A0<i style=3D"color:rgb(34,34,34);font-weight:700;font-family:arial,sans-s=
+erif"><font color=3D"#000000">En an=C3=A1lisis.=C2=A0</font></i>=C2=A0 =C2=
+=A0</span></li></ul></h3><hr style=3D"color:rgb(34,34,34)"><h3><font face=
+=3D"arial, sans-serif" size=3D"2">=F0=9F=94=B9=C2=A0 Cadenas KO=C2=A0</font=
+></h3><h3><font face=3D"arial, sans-serif" size=3D"2"><span style=3D"font-w=
+eight:400">Sin cadenas KO identificadas.=C2=A0</span></font></h3></div>Qued=
+o a vuestra disposici=C3=B3n para cualquier otra cuesti=C3=B3n relacionada =
+con el Status con la que os pueda ayudar.<div><br></div><div>Muchas gracias=
+.=C2=A0</div><div><br></div><div>Buen d=C3=ADa.</div></div></div></div></di=
+v></div></div><div><div dir=3D"ltr" class=3D"gmail_signature" data-smartmai=
+l=3D"gmail_signature">
+
+
+ =20
+
+
+<div>
+  <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"backgrou=
+nd-color:#ffffff;font-family:&#39;Instrument Sans&#39;,sans-serif;font-size=
+:14px;color:#100d25;border-collapse:collapse">
+    <tbody><tr>
+     =20
+      <td style=3D"padding:30px 20px 30px 30px;vertical-align:top">
+        <img border=3D"0" src=3D"https://storage.googleapis.com/nworld_recu=
+rsos_web/nfq.gif" width=3D"120" alt=3D"Logo" style=3D"display:block;border:=
+0;max-width:140px;margin:10px 0">
+      </td>
+
+     =20
+      <td style=3D"padding:30px 30px 30px 20px;vertical-align:top;font-fami=
+ly:&#39;Sora&#39;,sans-serif;font-size:14px;line-height:20px">
+        <p style=3D"margin:0 0 6px 0;font-size:18px;font-weight:700;color:#=
+000000">
+          Ignacio Andres Agusti Cordoba
+        </p>
+        <p style=3D"margin:0 0 10px 0;font-size:14px;font-weight:500;text-t=
+ransform:uppercase;color:#217bee">
+          Consultant
+        </p>
+        <p style=3D"margin:0 0 6px 0;color:#100d25">
+          C/ ODonnell 34, 28009, Madrid
+        </p>
+        <p style=3D"margin:0">
+          <span style=3D"color:#ee3d60">
+            Madrid
+          </span>
+           - London - Warszawa - CDMX - S=C3=A3o Paulo - Bogot=C3=A1 - NYC
+        </p>
+
+       =20
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"ma=
+rgin-top:15px;border-collapse:collapse;line-height:0;font-size:0">
+          <tbody><tr>
+            <td style=3D"padding-right:8px;line-height:0;font-size:0;vertic=
+al-align:top">
+              <a href=3D"https://www.linkedin.com/company/nfq-advisory/" re=
+l=3D"noopener" style=3D"display:block;text-decoration:none!important;border=
+:0!important;outline:none!important;line-height:0;font-size:0;color:transpa=
+rent;background:none" target=3D"_blank">
+                <img src=3D"https://storage.googleapis.com/nworld_recursos_=
+web/linkedin.png" width=3D"16" height=3D"16" alt=3D"LinkedIn" style=3D"disp=
+lay:block;border:0;outline:none;text-decoration:none">
+              </a>
+            </td>
+            <td style=3D"padding:0 8px;line-height:0;font-size:0;vertical-a=
+lign:top">
+              <a href=3D"https://www.instagram.com/nfq_advisory" rel=3D"noo=
+pener" style=3D"display:block;text-decoration:none!important;border:0!impor=
+tant;outline:none!important;line-height:0;font-size:0;color:transparent;bac=
+kground:none" target=3D"_blank">
+                <img src=3D"https://storage.googleapis.com/nworld_recursos_=
+web/instagram.png" width=3D"16" height=3D"16" alt=3D"Instagram" style=3D"di=
+splay:block;border:0;outline:none;text-decoration:none">
+              </a>
+            </td>
+            <td style=3D"padding-left:8px;line-height:0;font-size:0;vertica=
+l-align:top">
+              <a href=3D"https://www.facebook.com/NWorld.Advisory.Tech.Oper=
+ations" rel=3D"noopener" style=3D"display:block;text-decoration:none!import=
+ant;border:0!important;outline:none!important;line-height:0;font-size:0;col=
+or:transparent;background:none" target=3D"_blank">
+                <img src=3D"https://storage.googleapis.com/nworld_recursos_=
+web/facebook.png" width=3D"16" height=3D"16" alt=3D"Facebook" style=3D"disp=
+lay:block;border:0;outline:none;text-decoration:none">
+              </a>
+            </td>
+          </tr>
+        </tbody></table>
+
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+
+
+</div></div></div>
+
+--0000000000009cee5806500c417d--
