@@ -240,7 +240,7 @@ function construirResumenClienteMonitorSistemas_(monitor) {
     cas: cas,
     cicos: cicos,
     sdm: sdm,
-    sdplexHtml: "<strong>REVISION MANUAL:</strong> pendiente de automatizar.",
+    sdplexHtml: "1 registro sin expediente aperturado. En analisis.",
     cadenasKoMonitor: cadenasKoMonitor
   };
 }
@@ -259,7 +259,7 @@ function crearResumenClienteSeccionMonitor_(nombre, seccion) {
     if (erroresF > 0) {
       cadenaKoTexto = nombre + ": " + construirTextoCantidadMonitor_(erroresF, "error", "errores") + " en recepcion.";
     } else if (nombre === "CAS" && debeIncluirPendientesCasEnCadenasKo_() && pendientesP > 0) {
-      cadenaKoTexto = nombre + ": " + construirTextoEstadosMonitorCliente_(datos.estados || {}, "recepcion");
+      cadenaKoTexto = nombre + ": " + construirTextoEstadosMonitorCliente_(datos.estados || {}, "recepcion", nombre);
     }
   }
 
@@ -270,20 +270,20 @@ function crearResumenClienteSeccionMonitor_(nombre, seccion) {
   };
 }
 
-function construirHtmlRecepcionMonitorCliente_(seccion, gruposErrores) {
+function construirHtmlRecepcionMonitorCliente_(seccion, gruposErrores, nombreModulo) {
   var grupos = gruposErrores || [];
   if (grupos.length > 0) {
     return renderizarGruposErroresMonitorCliente_(grupos);
   }
 
-  var textoEstados = construirTextoEstadosMonitorCliente_((seccion && seccion.estados) || {}, "recepcion");
+  var textoEstados = construirTextoEstadosMonitorCliente_((seccion && seccion.estados) || {}, "recepcion", nombreModulo);
   if (textoEstados) {
     return escapeHtml_(textoEstados);
   }
 
   var recepcion = Number(seccion && seccion.recepcion) || 0;
   if (recepcion > 0) {
-    return escapeHtml_(construirTextoCantidadMonitor_(recepcion, "recepcion", "recepciones") + " registradas.");
+    return escapeHtml_(construirTextoCantidadMonitor_(recepcion, "recepcion", "recepciones") + " registradas. En analisis.");
   }
 
   return "Limpio";
@@ -293,12 +293,13 @@ function construirHtmlEnvioMonitorCliente_(seccion) {
   var envio = Number(seccion && seccion.envio) || 0;
   if (envio <= 0) return "Limpio";
 
-  return escapeHtml_(construirTextoCantidadMonitor_(envio, "envio", "envios") + " registrados.");
+  return escapeHtml_(construirTextoCantidadMonitor_(envio, "envio", "envios") + " registrados. En tramite.");
 }
 
-function construirTextoEstadosMonitorCliente_(estados, unidad) {
+function construirTextoEstadosMonitorCliente_(estados, unidad, nombreModulo) {
   var singular = unidad || "registro";
   var plural = singular === "recepcion" ? "recepciones" : singular + "s";
+  var sufijo = (nombreModulo === "CAS") ? " pendientes de tratamiento manual. En analisis." : ". En tramite.";
   var ordenEstados = ["P", "F", "N", "L"];
   var partes = [];
 
@@ -309,7 +310,7 @@ function construirTextoEstadosMonitorCliente_(estados, unidad) {
     partes.push(construirTextoCantidadMonitor_(cantidad, singular, plural) + " en estado " + codigo);
   });
 
-  return partes.length ? unirPartesTexto_(partes) + "." : "";
+  return partes.length ? unirPartesTexto_(partes) + sufijo : "";
 }
 
 function agruparErroresMonitorCliente_(detalles) {

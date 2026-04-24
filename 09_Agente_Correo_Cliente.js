@@ -8,7 +8,7 @@
 
 var OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses";
 var DEFAULT_OPENAI_CORREO_CLIENTE_MODEL = "gpt-5-mini";
-var OPENAI_API_KEY_DIRECT = "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";
+
 var OPENAI_EMAIL_AGENT_ENABLED_DIRECT = true;
 var OPENAI_EMAIL_MODEL_DIRECT = "";
 
@@ -21,8 +21,15 @@ function usarAgenteCorreoCliente_() {
   var apiKey = obtenerOpenAIApiKeyOpcional_();
   var enabled = obtenerOpenAIEmailAgentEnabled_();
 
-  if (!apiKey) return false;
-  if (!enabled) return false;
+  if (!apiKey) {
+    Logger.log("Agente desactivado: Falta OPENAI_API_KEY en Script Properties (detectado vacio).");
+    return false;
+  }
+  Logger.log("Agente activo: OPENAI_API_KEY detectada con longitud " + apiKey.length);
+  if (!enabled) {
+    Logger.log("Agente desactivado: OPENAI_EMAIL_AGENT_ENABLED esta en NO.");
+    return false;
+  }
   return true;
 }
 
@@ -32,12 +39,25 @@ function usarAgenteCorreoCliente_() {
  * @param {Object} resumen
  * @returns {string}
  */
+
+/**
+ * Guarda la clave OpenAI en Script Properties.
+ * Úsalo una sola vez con la clave nueva.
+ */
+function setOpenAIKey_(nuevaClave) {
+  if (!nuevaClave) {
+    throw new Error('Se debe proporcionar una clave OpenAI válida.');
+  }
+  PropertiesService.getScriptProperties().setProperty('OPENAI_API_KEY', nuevaClave);
+  Logger.log('OPENAI_API_KEY guardada en Script Properties.');
+}
+
 function construirHtmlReporteClienteConIA_(resumen) {
   var template = cargarPlantillaHtml_("PLANTILLA_CORREO_CLIENTE");
   var placeholdersBase = obtenerPlaceholdersBaseCorreoCliente_();
   var placeholdersIA = generarPlaceholdersCorreoClienteConIA_(resumen || {});
   var placeholdersBloqueados = construirPlaceholdersBloqueadosCorreoCliente_(resumen || {});
-  var placeholders = mezclarObjetos_(placeholdersBase, placeholdersIA, placeholdersBloqueados);
+  var placeholders = mezclarObjetos_(placeholdersBase, placeholdersBloqueados, placeholdersIA);
   return renderHtmlTemplate_(template, placeholders);
 }
 
@@ -143,7 +163,7 @@ function construirContextoAgenteCorreoCliente_(resumen) {
       "Manten un tono profesional, claro y apto para cliente.",
       "Si falta fuente para una seccion, deja una marca de revision manual.",
       "No incluyas firma ni cierre corporativo adicional al que ya existe en la plantilla.",
-      "Para errores de Economica no parametrizados, deja visible una revision manual."
+      "Si ves errores auto-traducidos (NO_PARAMETRIZADO_AUTO), preséntalos con profesionalidad como cualquier otro error."
     ]
   };
 }
@@ -159,7 +179,7 @@ function construirInstruccionesAgenteCorreoCliente_() {
     "Si una seccion no tiene fuente suficiente, marca revision manual con HTML visible.",
     "En Economica, usa la guia parametrica como referencia, pero el texto final debe sonar natural para cliente.",
     "En Economica, los errores ya agrupados vienen resumidos; no vuelvas a mencionar CT ni numeraciones salvo que sea imprescindible.",
-    "Si hay errores no parametrizados, mantenlos visibles con una marca de revision manual.",
+    "Los errores auto-traducidos (NO_PARAMETRIZADO_AUTO) preséntalos de forma natural, sin marca de revision manual, pero incluyendo el estado 'En análisis técnico' o similar.",
     "No afirmes que algo esta limpio si no existe dato que lo soporte."
   ];
   var reglasPersistentes = obtenerReglasAgenteCorreoCliente_();
@@ -241,6 +261,22 @@ function construirContextoEconomicaClienteParaIA_(filas) {
   });
 
   var agrupados = Object.keys(grupos).map(function (key) { return grupos[key]; });
+
+  var noParametrizadosTraducidos = noParametrizados.length > 0 ? autoParametrizarErroresIA_(noParametrizados) : [];
+
+  noParametrizadosTraducidos.forEach(function(item) {
+    agrupados.push({
+      claveError: "NO_PARAMETRIZADO_AUTO",
+      errorCanonico: item.fraseClienteSingular,
+      estadoOperativo: item.estado || "En analisis por soporte tecnico.",
+      fraseSingular: item.fraseClienteSingular,
+      frasePlural: item.fraseClientePlural,
+      ordenCliente: 9999,
+      cantidad: item.cantidad,
+      variantesDetectadas: [item.errorOriginal]
+    });
+  });
+
   agrupados.sort(function (a, b) {
     if (a.ordenCliente !== b.ordenCliente) return a.ordenCliente - b.ordenCliente;
     return a.claveError.localeCompare(b.claveError);
@@ -248,8 +284,86 @@ function construirContextoEconomicaClienteParaIA_(filas) {
 
   return {
     incidenciasAgrupadas: agrupados,
-    noParametrizados: noParametrizados
+    noParametrizados: [] // Ya procesados por la IA
   };
+}
+
+function autoParametrizarErroresIA_(noParametrizados) {
+  if (!noParametrizados || noParametrizados.length === 0) return [];
+  
+  var apiKey = obtenerOpenAIApiKeyOpcional_();
+  var fallback = function() {
+    return noParametrizados.map(function(err) {
+      return {
+        errorOriginal: err.errorOriginal,
+        cantidad: err.cantidad,
+        fraseClienteSingular: "Incidencia en analisis: " + err.errorOriginal,
+        fraseClientePlural: "Incidencias en analisis: " + err.errorOriginal,
+        estado: "En analisis por soporte tecnico."
+      };
+    });
+  };
+
+  if (!apiKey) return fallback();
+
+  var prompt = "Eres un experto traductor tecnico a lenguaje formal de cliente. " +
+    "Recibes errores no catalogados de un log bancario. " +
+    "Analiza cada errorOriginal, extrae el concepto central y devuelve un JSON estricto con la frase para un cliente singular y plural. " +
+    "Reglas: No inventes causas no mencionadas. Usa un tono neutro y formal. Retorna SIEMPRE el estado 'En analisis por soporte tecnico.'. " +
+    "Ejemplo: Si recibes 'Fallo TRON id 234', devuelve 'Se ha identificado un fallo en el sistema central TRON'.";
+
+  var schema = {
+    type: "object",
+    additionalProperties: false,
+    properties: {
+      traducciones: {
+        type: "array",
+        items: {
+          type: "object",
+          additionalProperties: false,
+          properties: {
+            errorOriginal: { type: "string" },
+            fraseClienteSingular: { type: "string" },
+            fraseClientePlural: { type: "string" },
+            estado: { type: "string" }
+          },
+          required: ["errorOriginal", "fraseClienteSingular", "fraseClientePlural", "estado"]
+        }
+      }
+    },
+    required: ["traducciones"]
+  };
+
+  var payload = {
+    model: obtenerModeloOpenAICorreoCliente_(),
+    text: {
+      format: {
+        type: "json_schema",
+        name: "autoparametrizacion",
+        strict: true,
+        schema: schema
+      }
+    },
+    input: [
+      { role: "system", content: [{ type: "input_text", text: prompt }] },
+      { role: "user", content: [{ type: "input_text", text: JSON.stringify(noParametrizados) }] }
+    ]
+  };
+
+  try {
+    var response = llamarOpenAIResponses_(payload);
+    var texto = extraerTextoDeResponseOpenAI_(response);
+    var data = JSON.parse(texto);
+    
+    return data.traducciones.map(function(t) {
+      var match = noParametrizados.filter(function(n) { return n.errorOriginal === t.errorOriginal; })[0];
+      t.cantidad = match ? match.cantidad : 1;
+      return t;
+    });
+  } catch (e) {
+    Logger.log("Error en autoParametrizarErroresIA_: " + e.message);
+    return fallback();
+  }
 }
 
 function obtenerGuiaParametricaEconomicaParaIA_() {
@@ -337,7 +451,7 @@ function extraerTextoDeResponseOpenAI_(response) {
 function obtenerOpenAIApiKey_() {
   var apiKey = obtenerOpenAIApiKeyOpcional_();
   if (!apiKey) {
-    throw new Error("Falta OPENAI_API_KEY. Puedes ponerla en OPENAI_API_KEY_DIRECT o en Script Properties.");
+    throw new Error('Falta OPENAI_API_KEY. Puedes ponerla en OPENAI_API_KEY_DIRECT o en Script Properties.');
   }
   return apiKey;
 }
@@ -347,7 +461,10 @@ function obtenerModeloOpenAICorreoCliente_() {
 }
 
 function obtenerOpenAIApiKeyOpcional_() {
-  return OPENAI_API_KEY_DIRECT || PropertiesService.getScriptProperties().getProperty("OPENAI_API_KEY") || "";
+  var props = PropertiesService.getScriptProperties();
+  return props.getProperty('OPENAI_API_KEY') || 
+         props.getProperty('OPENAI_API_KEY_DIRECT') || 
+         "";
 }
 
 function obtenerOpenAIEmailAgentEnabled_() {

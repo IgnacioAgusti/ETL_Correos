@@ -2,11 +2,67 @@
 # Cada linea no vacia y que no empiece por # se enviara al agente como regla.
 # Este documento es la fuente de verdad para afinar la redaccion del correo.
 
-No enviar el correo 'TAREAS: Errores TRON detectados' mientras esa directriz siga desactivada.
-No incluir un resumen inicial de CAS antes del bloque 'TRAMES comunicaciones'.
-Deja vacio el bloque 'Cadenas KO' mientras no haya informacion suficiente para completarlo con fiabilidad.
-En CAS no hables de 'tramas'; usa 'recepciones en estado P' cuando el monitor reporte pendientes.
-No escribas frases del tipo 'No hay detalles individuales...' ni observaciones adicionales.
-En TRAMES agrupa los errores repetidos por descripcion canonica.
-No muestres lote, registro ni traza tecnica en el correo cliente.
-Ejemplo correcto: '3 errores de no existen datos en tabla de claves.'
+# ── REGLA DE ORO: EL PUNTO MEDIO DE REDACCIÓN ──
+
+Para cada sección, busca el equilibrio entre el dato técnico (corto) y la explicación del modelo (largo).
+FÓRMULA: [Cantidad de registros] + [Estado técnico] + [Acción/Consecuencia breve].
+PROHIBIDO: No uses coletillas largas como "Detectado hoy, se resolverá a lo largo del día". Sustitúyelo por "En análisis" o "En trámite".
+
+# ── ESTRUCTURA GENERAL ──
+
+No generes NINGUN texto fuera de los placeholders del schema JSON. Cada valor del JSON es un fragmento HTML que se inyectara dentro de un <li> o <div> existente.
+No envuelvas los valores en <p>, <div> ni etiquetas de bloque; usa solo texto plano, <strong>, <em> o <span> dentro de cada placeholder.
+No insertes parrafos previos, resumenes iniciales ni preambulos antes de ninguna seccion. La plantilla ya tiene su propia introduccion.
+Cada placeholder debe contener SOLO el contenido de su seccion, nada mas.
+
+# ── CONVENIO CAS ──
+
+En CAS, NO uses la palabra 'tramas'. Cuando el monitor reporte pendientes usa 'recepciones en estado P'.
+CORRECTO: 25 registros en estado ‘P’ pendientes de tratamiento manual. En análisis.
+INCORRECTO (Corto): 25 recepciones registradas.
+INCORRECTO (Largo): 25 registros en estado ‘P’ que van a ser tratados manualmente por el tramitador. Detectado hoy, se resolverá a lo largo del día.
+Si CAS envio es 0 y no hay errores, escribe exactamente: Limpio
+No escribas frases como 'No hay detalles individuales de error disponibles' ni 'No se han registrado detalles de fallo'. Si no hay detalle, no lo menciones.
+
+# ── CONVENIOS SDM Y CICOS ──
+
+No muestres lote, registro, traza tecnica ni identificadores internos en ningun placeholder.
+CORRECTO CICOS: 23 registros en estado ‘L’ pendientes de validación de fecha. En trámite.
+INCORRECTO CICOS (Corto): 23 registros recibidos.
+INCORRECTO CICOS (Largo): 23 registros con COD_ESTADO = ‘L’ y fecha de recepción 21/04/26. Detectado hoy, se resolverá a lo largo del día.
+CORRECTO SDM: 3 notificaciones con código 030 en estado ‘F’. En análisis.
+INCORRECTO SDM (Corto): 3 errores detectados.
+INCORRECTO SDM (Largo): 3 notificaciones con código de mensaje 030 y COD_ESTADO ‘F’ en SDM con fecha 21/04/26. Detectado hoy, se resolverá a lo largo del día.
+Agrupa los errores repetidos del monitor en una sola frase corta con la cantidad.
+Si no hay incidencias en recepcion o envio, escribe exactamente: Limpio
+No escribas observaciones, recomendaciones ni sugerencias de accion.
+INCORRECTO: se requiere revision de la tabla CLAVES para ese lote.
+
+# ── SDP-LEX ──
+
+CORRECTO: 1 registro sin expediente aperturado. En análisis.
+INCORRECTO (Corto): 1 error en SDPLEX.
+INCORRECTO (Largo): Se ha identificado un registro SDPLEX sin expediente aperturado. Detectado hoy, se encuentra actualmente en fase de análisis.
+Si no hay datos de SDPLEX en el monitor, escribe exactamente: Sin datos disponibles en el monitor.
+No escribas parrafos largos de 'Revision manual' ni 'se requiere comprobacion manual de la fuente'.
+
+# ── BACKEND OPERACIONES ECONOMICAS ──
+
+Usa la guia parametrica para redactar cada item. El texto final debe sonar natural para cliente.
+Cada item debe ser un <li> con formato: frase narrativa. <strong>Estado operativo</strong>
+Los errores ya vienen agrupados por clave canonica; no repitas CT ni numeraciones.
+Los errores auto-traducidos (NO_PARAMETRIZADO_AUTO) preséntalos de forma natural, sin marca de revision manual, incluyendo el estado 'En análisis técnico'.
+Si no hay incidencias, escribe un unico <li>Limpio</li>
+No escribas titulos como 'Operaciones economicas — Resumen agrupado:' ni 'Estado operativo: en analisis'. Ve directo a los items.
+
+# ── CADENAS KO ──
+
+Deja VACIO el placeholder cadenas_ko_html (string vacio "") mientras no haya informacion fiable. No inventes un resumen de otras secciones.
+
+# ── REGLAS GLOBALES ──
+
+No inventes datos que no existan en el contexto proporcionado.
+Manten un tono profesional, claro y orientado a cliente.
+No incluyas firma ni cierre corporativo.
+Si falta fuente para una seccion, deja una marca de revision manual con <strong>[REVISION MANUAL]</strong>.
+No envies el correo de TAREAS: Errores TRON mientras esa directriz siga desactivada.

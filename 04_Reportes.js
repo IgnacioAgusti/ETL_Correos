@@ -32,10 +32,13 @@ function construirHtmlReporteClienteFinal_(resumen, opciones) {
 
   if (quiereIA && usarAgenteCorreoCliente_()) {
     try {
+      Logger.log("Iniciando generacion de reporte con IA...");
       return construirHtmlReporteClienteConIA_(resumen || {});
     } catch (e) {
-      Logger.log("Fallo el agente de correo cliente. Se usa fallback determinista: " + e);
+      Logger.log("CRITICO: Fallo el agente de correo cliente. Se usa fallback determinista. Error: " + e.message);
     }
+  } else {
+    Logger.log("Agente IA omitido (no habilitado o falta configuracion). Usando motor estandar.");
   }
 
   return construirHtmlReporteCliente_(resumen || {});
