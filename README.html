@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETL_Correos - Documentación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.4;
+        }
+
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f8f9ff;
+        }
+
+        .feature-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .feature-box strong {
+            color: #667eea;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        footer {
+            background: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 30px 40px;
+            text-align: center;
+            color: #666;
+            margin-top: 40px;
+        }
+
+        .emoji {
+            font-size: 1.3em;
+            margin-right: 8px;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .roadmap-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="emoji">📧</span>ETL_Correos</h1>
+            <p class="subtitle">Sistema Automatizado de Monitorización de Incidencias</p>
+            <p style="margin-top: 15px; opacity: 0.9;">Solución inteligente para automatizar la extracción, análisis y reporteo de incidencias operativas</p>
+        </header>
+
+        <div class="content">
+            <h2><span class="emoji">🎯</span>¿Qué es este proyecto?</h2>
+            <p><strong>ETL_Correos</strong> es un motor de automatización basado en <strong>Google Apps Script</strong> que monitoriza diariamente los correos de incidencias operativas de MAPFRE. El sistema:</p>
+
+            <div class="feature-box">
+                <p><strong>✅ Lee correos en Gmail</strong> buscando automáticamente errores (KO, NOTOK, ERROR, etc.)</p>
+                <p><strong>✅ Registra en tiempo real</strong> en una hoja de cálculo un log histórico completo</p>
+                <p><strong>✅ Analiza y extrae detalles</strong> de errores específicos (e.g., Operaciones Económicas TRON)</p>
+                <p><strong>✅ Genera reportes estructurados</strong> en Excel con datos consolidados</p>
+                <p><strong>✅ Envía correos automáticos</strong> narrativos al cliente y técnicos al equipo (configurable)</p>
+            </div>
+
+            <h2><span class="emoji">📊</span>Arquitectura & Stack Tecnológico</h2>
+            <pre>┌─────────────────────────────────────────────────────────────┐
+│                    Google Apps Script (V8)                   │
+├─────────────────────────────────────────────────────────────┤
+│  • Gmail API (lectura de correos + etiquetas)               │
+│  • Spreadsheet API (escritura de logs y reportes)           │
+│  • Execution Triggers (ejecución programada)                │
+└─────────────────────────────────────────────────────────────┘
+         ↓
+┌─────────────────────────────────────────────────────────────┐
+│              GitHub Repository + Clasp CLI                   │
+│  (Sincronización bidireccional código ↔ Google)             │
+└─────────────────────────────────────────────────────────────┘</pre>
+
+            <p><strong>Componentes clave:</strong></p>
+            <ul>
+                <li><strong>Runtime:</strong> Google Apps Script (V8)</li>
+                <li><strong>APIs utilizadas:</strong> Gmail API, Spreadsheet API</li>
+                <li><strong>Despliegue:</strong> clasp (CLI oficial de Google para Apps Script)</li>
+                <li><strong>Repositorio:</strong> GitHub + .clasp.json para sincronización</li>
+                <li><strong>Zona horaria:</strong> Europe/Madrid (configurado globalmente)</li>
+            </ul>
+
+            <h2><span class="emoji">📁</span>Estructura de Archivos Principales</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Archivo</th>
+                        <th>Propósito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>01_ImportadorCorreos.js</code></td>
+                        <td>Punto de entrada. Busca y registra correos con errores</td>
+                    </tr>
+                    <tr>
+                        <td><code>02_Analisis.js</code></td>
+                        <td>Orquestador del análisis diario y enrutamiento</td>
+                    </tr>
+                    <tr>
+                        <td><code>03_Modulo_Economica.js</code></td>
+                        <td>Extracción de errores TRON de Operaciones Económicas</td>
+                    </tr>
+                    <tr>
+                        <td><code>04_Reportes.js</code></td>
+                        <td>Construcción y envío de correos (cliente + equipo)</td>
+                    </tr>
+                    <tr>
+                        <td><code>05_Utilidades.js</code></td>
+                        <td>Funciones auxiliares reutilizables</td>
+                    </tr>
+                    <tr>
+                        <td><code>appsscript.json</code></td>
+                        <td>Manifiesto de Apps Script (runtime, permisos)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2><span class="emoji">🔄</span>Flujo de Ejecución</h2>
+            <pre>┌──────────────────────────┐
+│  importadordeCorreos()   │  ← PUNTO DE ENTRADA
+└────────┬─────────────────┘
+         │
+         ├─→ 1️⃣ Busca correos en Gmail (query inteligente)
+         ├─→ 2️⃣ Filtra por fecha hoy + ID únicos
+         ├─→ 3️⃣ Clasifica usando regex + tabla de traducción
+         └─→ 4️⃣ Guarda en "Log errores" (deduplicación por ID)
+                  ↓
+         ┌──────────────────────────────────┐
+         │ ejecutarAnalisisDiario()         │
+         │ (siempre se ejecuta)             │
+         └────────┬─────────────────────────┘
+                  │
+                  ├─→ 5️⃣ Lee "Tabla de traducción" columna D = "SI"
+                  ├─→ 6️⃣ Busca correos recientes en el log de HOY
+                  └─→ 7️⃣ Enruta según patrón → lanza módulo específico
+                           │
+                           └─→ Modulo_Economica(idCorreo)
+                               • Parsea cuerpo línea por línea
+                               • Extrae CT, Lote, Numeración, Error
+                               • Agrupa por CT + Lote + Error
+                               • Devuelve array 7 columnas
+                  │
+                  ├─→ 8️⃣ Guarda en "Reporte Economica"
+                  ├─→ 9️⃣ Envía correo narrativo al cliente (HTML)
+                  └─→ 🔟 Envía correo técnico al equipo (si habilitado)</pre>
+
+            <h2><span class="emoji">📋</span>Hojas de la Spreadsheet</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hoja</th>
+                        <th>Propósito</th>
+                        <th>Frecuencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Log errores</strong></td>
+                        <td>Registro histórico de todos los correos procesados</td>
+                        <td>Diaria</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tabla de traducción</strong></td>
+                        <td>Reglas manuales para clasificación de patrones</td>
+                        <td>Según necesidad</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reporte Economica</strong></td>
+                        <td>Detalle de errores TRON del día</td>
+                        <td>Diaria</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2><span class="emoji">⚙️</span>Consideraciones Importantes</h2>
+
+            <div class="info">
+                <p><strong>Timezone:</strong> Todo usa Europe/Madrid. Cambiar si operas en otra zona horaria.</p>
+            </div>
+
+            <div class="info">
+                <p><strong>Deduplicación:</strong> Los correos se deduplan por su ID de Gmail (columna E del log). Un correo procesado nunca se vuelve a insertar automáticamente.</p>
+            </div>
+
+            <div class="warning">
+                <p><strong>⚠️ Regla de Oro:</strong> NUNCA dupliques nombres de función entre archivos. En Apps Script todos los .js comparten scope global.</p>
+            </div>
+
+            <h2><span class="emoji">🚀</span>Despliegue Rápido</h2>
+            <pre>
+# Autenticarse (primera vez)
+clasp login
+
+# Subir cambios locales a Google Apps Script
+clasp push
+
+# Abrir el editor en el navegador
+clasp open
+
+# Descargar cambios desde Apps Script
+clasp pull</pre>
+
+            <h2><span class="emoji">🎓</span>Flujo de Aprendizaje Recomendado</h2>
+            <ol>
+                <li>Lee el README completo en GitHub</li>
+                <li>Explora <code>01_ImportadorCorreos.js</code> (punto de entrada)</li>
+                <li>Sigue la cadena de llamadas en <code>02_Analisis.js</code></li>
+                <li>Estudia <code>03_Modulo_Economica.js</code> (lógica de parseo)</li>
+                <li>Revisa <code>04_Reportes.js</code> (construcción de correos)</li>
+                <li>Consulta documentación adicional en el repo para profundizar</li>
+            </ol>
+
+            <h2><span class="emoji">🚀</span>Roadmap Futuro</h2>
+            <div class="roadmap-item">
+                <div class="checkbox">☐</div>
+                <div>Implementar tabla paramétrica economica completa</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="checkbox">☐</div>
+                <div>Parser mejorado para errores TRAMES</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="checkbox">☐</div>
+                <div>Dashboard de métricas en Data Studio</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="checkbox">☐</div>
+                <div>Webhook para notificaciones en Slack</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="checkbox">☐</div>
+                <div>API REST wrapper para integración externa</div>
+            </div>
+
+            <h2><span class="emoji">📞</span>Soporte</h2>
+            <p><strong>Bugs:</strong> Abre un issue en GitHub</p>
+            <p><strong>Mejoras:</strong> Submit pull request con descripción clara</p>
+            <p><strong>Preguntas:</strong> Contacta al dueño del proyecto</p>
+        </div>
+
+        <footer>
+            <p>Made with ❤️ for MAPFRE Operations Team</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Última actualización: 28 de mayo de 2026 | Versión 2.0 (Estable) | Rama: main</p>
+        </footer>
+    </div>
+</body>
+</html>
