@@ -392,5 +392,3 @@ Uso interno MAPFRE. Todos los derechos reservados.
 - [ ] Tests unitarios (Apps Script está limitado aquí)
 
 ---
-
-> **Made with ❤️ for MAPFRE Operations Team**
